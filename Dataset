@@ -1,0 +1,26 @@
+
+import cv2
+
+cam = cv2.VideoCapture("/content/drive/MyDrive/Grave of the Fireflies (1988).mkv")
+fps = cam.get(cv2.CAP_PROP_FPS)
+fps
+
+n = 0
+i = 0
+if cam.isOpened():
+ while True:
+    ret,frame = cam.read()
+    if(n % 25 == 0):
+      cv2.imwrite("/content/drive/MyDrive/Sample/%d.png" %i,frame)
+      i+=1
+    n+=1
+    if ret == False:
+      break
+cam.release()
+
+!pip install split-folders[full]
+
+import splitfolders
+
+input_folder = '/content/drive/MyDrive/Anime_Images'
+splitfolders.ratio(input_folder, output= "/content/drive/MyDrive/Dataset",seed = 42,ratio =(0.7,0.15,0.15),group_prefix=None, move=False)
