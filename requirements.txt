@@ -2,5 +2,7 @@ bing-image-downloader
 opencv-python
 split-folders[full]
 tensorflow
-torch torchvision torchaudio
+torch
+torchvision
+torchaudio
 matplotlib
